@@ -1,2 +1,2 @@
 # ProyectoFinal
-Este proyecto final es un proyecto escolar
+Este es un proyecto escolar
