@@ -55,3 +55,7 @@ CREATE TABLE autores
     amaterno varchar(20)
 )
 
+//tabla editorial 
+CREATE TABLE editoriales (
+    editorial_id serial NOT NULL,
+    nombreEdit varchar (30) NOT NULL)
