@@ -1,32 +1,33 @@
-<html lang="es">
-<head> 
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta charset="UTF-8">
-	<Title>Eliminar | Biblioteca </title>
-	<link rel="stylesheet" href="style.css">
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title> Eliminar libro | Biblioteca</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
+
 <body>
-	<div id="wrapper">
-	<div class="form-container">
-	<span class="form-heading">Eliminar libro</span>
-	<form name= "alta" action="alta.php" method="post">
-	<p>Para eliminar favor de ingresar los siguientes datos:</p>
-	</form>
-		
-	<form action="<?php echo $PHP_SELF;?>">
-	<div class="input-group">
-		<i class="fas fa-user"></i>
-		<input type="text" name="idLibro" placeholder="ID del libro"><br/>
-	</div>
+<?php
+//recibe valor de index.php al solicitar editar un registro de libro
+$id = $_GET['id'];
+$db= pg_connect("hostname=localhost 
+    port=5432 dbname= biblioteca user=hinata password=kageyama")
+or die ('Could not connect: ' . pg_last_error());
+if($db){
+	echo "<p>El libro a eliminar es: </p>";
+    $query = "SELECT * FROM libros WHERE idLibro='".$id."'";
+    $query = pg_query($db,$query);
+    $resultado = pg_fetch_assoc($query);
 
+}
+
+?>
+<h1> Eliminar libro  </h1>
 	
+<form name="eliminar" action=“elimina_libro.php” method=“POST”>
 
-	<div class="input-group">
-		<button>
-		<i>Confirmar </i><br/>
-		</button>
-	</div>
 
-	
-	<a href="index.php">Regresar al inicio </a>
- <br/>
+    <input type=“submit”  value=“Confirmar”>
+
+</form>
+</body>
+</html>
