@@ -22,14 +22,17 @@
 	$result = pg_query($query) or die ('Query failed: ' . pg_last_error());
 
 	echo "<table>\n";
-	while ($row = pg_fetch_array($result, null, PGSQL_ASSOC)){
-	//	echo "\t <tr>\n";
-		echo "<td>".$idLibro."</td>";	
-	//		echo "\t \t <td> $col_value</td>\n";
-		
-	//	echo "\t</tr>\n";
-	}
-	echo "</table>\n";
+    while ($row = pg_fetch_array($result, null, PGSQL_ASSOC)){
+           echo "<tr>";
+            echo "<td>".$idLibro."</td>";
+            echo "<td>".$titulo."</td>";
+            echo "<td>".$editorial."</td>";
+            echo "<td>".$edicion."</td>";
+            echo "<td>".$autor."</td>";
+        echo "<td><a href='form_edita.php?id=".$row[idLibro]."'>Editar libro</td>";
+            echo "</tr>"
+
+    }
 	pg_free_result($result);
 	pg_close($dbconn);
 ?>
