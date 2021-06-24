@@ -21,6 +21,12 @@
     while ($row = pg_fetch_array($result, null, PGSQL_ASSOC)){
            echo "<tr>";
             echo "<td>".$idLibro."</td>";
+            echo "<td>".$titulo."</td>";
+            echo "<td>".$editorial."</td>";
+            echo "<td>".$edicion."</td>";
+            echo "<td>".$autor."</td>";
+        echo "<td><a href='form_edita.php?id=".$row[idLibro]."'>Editar libro</td>";
+            echo "</tr>"
 
     }
     echo "</table>\n";
