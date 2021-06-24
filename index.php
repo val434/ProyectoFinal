@@ -19,7 +19,8 @@
 
     echo "<table>\n";
     while ($row = pg_fetch_array($result, null, PGSQL_ASSOC)){
-            $idLibro
+           echo "<tr>";
+            echo "<td>".$idLibro."</td>";
 
     }
     echo "</table>\n";
