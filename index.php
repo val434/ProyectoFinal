@@ -29,7 +29,8 @@
             echo "<td>".$editorial."</td>";
             echo "<td>".$edicion."</td>";
             echo "<td>".$autor."</td>";
-        echo "<td><a href='form_edita.php?id=".$row[idLibro]."'>Editar libro</td>";
+            echo "<td><a href='form_edita.php?id=".$row[idLibro]."'>Editar libro</td>";
+	    echo "<td><a href='form_elimina.php?id=".$row[idLibro]."'>Eliminar libro</td>";
             echo "</tr>"
 
     }
