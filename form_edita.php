@@ -31,13 +31,42 @@ if($db){
     <label for=“edicion”>Edición: </label>
     <input type=“text” name=“edicion” value="<?php echo $resultado['edicion'] ;?>"><br/>
 
-    <label for=“editorial”>Editorial: </label>
-    <input type=“text” name=“editorial” value="<?php echo $resultado['editorialID'] ;?>"><br/>
-
-    <label for=“nombreAutor”>Autor: </label>
-    <input type=“text” name=“nombre” value="<?php echo $resultado['autorID'] ;?>"><br/>
-
-
+    <div class="form-field">
+			<select id="editorial">
+				<option value="">Editorial</option>
+			<?php	
+				if($result->num_rows > 0){
+					while($row = $result->fetch_assoc()){
+						echo '<option value="".$row['idEditorial'].'">'.$row['nombreEditorial'].'</option>';
+					}
+				}else{
+					echo '<option value=""> Editorial no disponible</option>;
+				}
+				
+				?>
+			</select>
+		
+		</div>
+		
+		<div class="form-field">
+			<select id="editorial">
+				<option value="">Editorial</option>
+			<?php	
+			$query = "SELECT * FROM autor ";
+ 	  	 	$query = pg_query($db,$query);
+  	    	        $result = pg_fetch_assoc($query);
+				if($result->num_rows > 0){
+					while($row = $result->fetch_assoc()){
+						echo '<option value="".$row['idAutor'].'">'.$row['nombreAutor'].'</option>';
+					}
+				}else{
+					echo '<option value=""> Autor no disponible</option>;
+				}
+				
+				?>
+			</select>
+		
+		</div>
     <input type=“submit”  value=“Enviar”>
 
 </form>
