@@ -15,7 +15,7 @@
     or die ('Could not connect: ' . pg_last_error());
 
     $query = "SELECT * FROM libros ORDER BY idLibro";
-    $result = pg_query($query) or die ('Query failed: ' . pg_last_error());
+    $result = pg_query($db,$query) or die ('Query failed: ' . pg_last_error());
 
     echo "<table>\n";
     while ($row = pg_fetch_array($result, null, PGSQL_ASSOC)){
